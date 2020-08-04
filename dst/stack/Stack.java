@@ -8,31 +8,30 @@ public class Stack<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] data = new Object[DEFAULT_CAPACITY];
+    @SuppressWarnings("unchecked")
+    private T[] data = (T[]) new Object[DEFAULT_CAPACITY];
 
     public boolean empty() {
         return size == 0;
     }
 
-    @SuppressWarnings("unchecked")
     public T peek() {
         if (size == 0) {
             return null;
         }
 
-        return (T) data[size - 1];
+        return data[size - 1];
     }
 
-    @SuppressWarnings("unchecked")
     public T pop() {
         if (size == 0) {
             throw new EmptyStackException();
         }
 
-        Object obj = data[size - 1];
+        T obj = data[size - 1];
         data[size - 1] = null;
         size--;
-        return (T) obj;
+        return obj;
     }
 
     public T push(T element) {
@@ -51,9 +50,10 @@ public class Stack<T> {
         return -1;
     }
 
+    @SuppressWarnings("unchecked")
     private void ensureCapacity() {
         if (data.length == size) {
-            Object[] temp = new Object[data.length + DEFAULT_CAPACITY];
+            T[] temp = (T[]) new Object[data.length + DEFAULT_CAPACITY];
             for (int i = 0; i < size; i++) {
                 temp[i] = data[i];
             }

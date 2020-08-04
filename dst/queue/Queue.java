@@ -8,30 +8,29 @@ public class Queue<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] data = new Object[DEFAULT_CAPACITY];
+    @SuppressWarnings("unchecked")
+    private T[] data = (T[]) new Object[DEFAULT_CAPACITY];
 
     public boolean empty() {
         return size == 0;
     }
 
-    @SuppressWarnings("unchecked")
     public T head() {
         if (size == 0) {
             return null;
         }
 
-        return (T) data[0];
+        return data[0];
     }
 
-    @SuppressWarnings("unchecked")
     public T dequeue() {
         if (size == 0) {
             throw new NoSuchElementException();
         }
 
-        Object obj = data[0];
+        T obj = data[0];
         shiftQueue();
-        return (T) obj;
+        return obj;
     }
 
     public T enqueue(T element) {
@@ -41,9 +40,10 @@ public class Queue<T> {
         return element;
     }
 
+    @SuppressWarnings("unchecked")
     private void ensureCapacity() {
         if (data.length == size) {
-            Object[] temp = new Object[data.length + DEFAULT_CAPACITY];
+            T[] temp = (T[]) new Object[data.length + DEFAULT_CAPACITY];
             for (int i = 0; i < size; i++) {
                 temp[i] = data[i];
             }

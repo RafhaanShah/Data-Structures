@@ -6,7 +6,8 @@ public class ArrayList<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] data = new Object[DEFAULT_CAPACITY];
+    @SuppressWarnings("unchecked")
+    private T[] data = (T[]) new Object[DEFAULT_CAPACITY];
 
     public void add(T element) {
         ensureCapacity();
@@ -14,10 +15,11 @@ public class ArrayList<T> {
         size++;
     }
 
+    @SuppressWarnings("unchecked")
     public void add(int index, T element) {
         ensureCapacity();
 
-        Object[] temp = new Object[data.length];
+        T[] temp = (T[]) new Object[data.length];
         temp[index] = element;
 
         for (int i = 0; i < size; i++) {
@@ -46,10 +48,9 @@ public class ArrayList<T> {
         return indexOf(element) > -1;
     }
 
-    @SuppressWarnings("unchecked")
     public T get(int index) {
         checkIndex(index);
-        return (T) data[index];
+        return data[index];
     }
 
     public int indexOf(T element) {
@@ -93,9 +94,10 @@ public class ArrayList<T> {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void ensureCapacity() {
         if (data.length == size) {
-            Object[] temp = new Object[data.length + DEFAULT_CAPACITY];
+            T[] temp = (T[]) new Object[data.length + DEFAULT_CAPACITY];
             for (int i = 0; i < size; i++) {
                 temp[i] = data[i];
             }

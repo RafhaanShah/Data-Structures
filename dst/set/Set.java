@@ -6,7 +6,8 @@ public class Set<T> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
-    private Object[] data = new Object[DEFAULT_CAPACITY];
+    @SuppressWarnings("unchecked")
+    private T[] data = (T[]) new Object[DEFAULT_CAPACITY];
 
     public boolean add(T element) {
         if (contains(element)) {
@@ -61,9 +62,10 @@ public class Set<T> {
         return true;
     }
 
+    @SuppressWarnings("unchecked")
     private void ensureCapacity() {
         if (data.length == size) {
-            Object[] temp = new Object[data.length + DEFAULT_CAPACITY];
+            T[] temp = (T[]) new Object[data.length + DEFAULT_CAPACITY];
             for (int i = 0; i < size; i++) {
                 temp[i] = data[i];
             }
