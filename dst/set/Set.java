@@ -32,13 +32,8 @@ public class Set<T> {
         return indexOf(element) > -1;
     }
 
-    private int indexOf(T element) {
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(element)) {
-                return i;
-            }
-        }
-        return -1;
+    public T get(int index) {
+        return data[index];
     }
 
     public boolean isEmpty() {
@@ -75,6 +70,15 @@ public class Set<T> {
             }
             data = temp;
         }
+    }
+
+    private int indexOf(T element) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(element)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
