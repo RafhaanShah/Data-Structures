@@ -20,7 +20,7 @@ public class MapTest {
     @Test
     public void isEmpty_onEmptyMap() {
         assertTrue(map.isEmpty());
-        assertEquals(0, map.size);
+        assertEquals(0, map.size());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class MapTest {
 
         assertEquals(value, map.put(key, value));
         assertFalse(map.isEmpty());
-        assertEquals(1, map.size);
+        assertEquals(1, map.size());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class MapTest {
 
         assertEquals(value, map.put(key, value));
         assertFalse(map.isEmpty());
-        assertEquals(1, map.size);
+        assertEquals(1, map.size());
     }
 
     @Test

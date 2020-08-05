@@ -2,7 +2,7 @@ package dst.map;
 
 public class Map<K, V> {
 
-    public int size = 0;
+    private int size = 0;
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -91,6 +91,10 @@ public class Map<K, V> {
         }
 
         return values;
+    }
+
+    public int size() {
+        return size;
     }
 
     @SuppressWarnings("unchecked")

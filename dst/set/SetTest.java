@@ -18,7 +18,7 @@ public class SetTest {
 
     @Test
     public void sizeAndIsEmpty_onEmptySet() {
-        assertEquals(0, set.size);
+        assertEquals(0, set.size());
         assertTrue(set.isEmpty());
     }
 
@@ -28,11 +28,11 @@ public class SetTest {
         set.add(obj);
         set.add(new Object());
 
-        assertEquals(2, set.size);
+        assertEquals(2, set.size());
         assertFalse(set.isEmpty());
 
         set.remove(obj);
-        assertEquals(1, set.size);
+        assertEquals(1, set.size());
     }
 
     @Test
@@ -81,7 +81,7 @@ public class SetTest {
         set.add(new Object());
         set.clear();
 
-        assertEquals(0, set.size);
+        assertEquals(0, set.size());
     }
 
 }

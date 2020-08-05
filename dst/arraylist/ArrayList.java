@@ -2,7 +2,7 @@ package dst.arraylist;
 
 public class ArrayList<T> {
 
-    public int size = 0;
+    private int size = 0;
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -86,6 +86,10 @@ public class ArrayList<T> {
     public void set(int index, T element) {
         checkIndex(index);
         data[index] = element;
+    }
+
+    public int size() {
+        return size;
     }
 
     private void checkIndex(int index) {

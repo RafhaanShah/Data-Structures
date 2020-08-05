@@ -2,7 +2,7 @@ package dst.set;
 
 public class Set<T> {
 
-    public int size = 0;
+    private int size = 0;
 
     private static final int DEFAULT_CAPACITY = 10;
 
@@ -60,6 +60,10 @@ public class Set<T> {
         size--;
 
         return true;
+    }
+
+    public int size() {
+        return size;
     }
 
     @SuppressWarnings("unchecked")

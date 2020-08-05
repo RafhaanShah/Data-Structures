@@ -19,7 +19,7 @@ public class ArrayListTest {
 
     @Test
     public void sizeAndIsEmpty_onEmptyList() {
-        assertEquals(0, arrayList.size);
+        assertEquals(0, arrayList.size());
         assertTrue(arrayList.isEmpty());
     }
 
@@ -28,11 +28,11 @@ public class ArrayListTest {
         arrayList.add(new Object());
         arrayList.add(new Object());
 
-        assertEquals(2, arrayList.size);
+        assertEquals(2, arrayList.size());
         assertFalse(arrayList.isEmpty());
 
         arrayList.remove(0);
-        assertEquals(1, arrayList.size);
+        assertEquals(1, arrayList.size());
     }
 
     @Test
@@ -144,7 +144,7 @@ public class ArrayListTest {
         arrayList.add(new Object());
         arrayList.clear();
 
-        assertEquals(0, arrayList.size);
+        assertEquals(0, arrayList.size());
     }
 
 }
