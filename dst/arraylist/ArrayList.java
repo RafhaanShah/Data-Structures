@@ -17,8 +17,11 @@ public class ArrayList<T> {
 
     @SuppressWarnings("unchecked")
     public void add(int index, T element) {
-        ensureCapacity();
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
 
+        ensureCapacity();
         T[] temp = (T[]) new Object[data.length];
         temp[index] = element;
 
@@ -93,7 +96,7 @@ public class ArrayList<T> {
     }
 
     private void checkIndex(int index) {
-        if (index < 0 || index > (size - 1)) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
     }
