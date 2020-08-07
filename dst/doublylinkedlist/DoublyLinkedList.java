@@ -7,7 +7,7 @@ public class DoublyLinkedList<T> {
     private int size = 0;
 
     public void add(T element) {
-        Node<T> node = new Node<T>(element, null, null);
+        Node<T> node = new Node<T>(element);
 
         if (isEmpty()) {
             head = node;
@@ -16,7 +16,7 @@ public class DoublyLinkedList<T> {
         }
 
         Node<T> current = head;
-        while (current.hasNext()) {
+        while (current.next != null) {
             current = current.next;
         }
 
@@ -30,7 +30,7 @@ public class DoublyLinkedList<T> {
             throw new IndexOutOfBoundsException();
         }
 
-        Node<T> node = new Node<T>(element, null, null);
+        Node<T> node = new Node<T>(element);
 
         if (isEmpty()) {
             head = node;
@@ -189,15 +189,10 @@ public class DoublyLinkedList<T> {
         private Node<E> prev;
         private E data;
 
-        public Node(E d, Node<E> n, Node<E> p) {
+        public Node(E d) {
             data = d;
-            next = n;
-            prev = p;
-        }
-
-        public boolean hasNext() {
-            return next != null;
         }
 
     }
+
 }

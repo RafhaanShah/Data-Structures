@@ -7,7 +7,7 @@ public class LinkedList<T> {
     private int size = 0;
 
     public void add(T element) {
-        Node<T> node = new Node<T>(element, null);
+        Node<T> node = new Node<T>(element);
 
         if (isEmpty()) {
             head = node;
@@ -16,7 +16,7 @@ public class LinkedList<T> {
         }
 
         Node<T> current = head;
-        while (current.hasNext()) {
+        while (current.next != null) {
             current = current.next;
         }
 
@@ -29,7 +29,7 @@ public class LinkedList<T> {
             throw new IndexOutOfBoundsException();
         }
 
-        Node<T> node = new Node<T>(element, null);
+        Node<T> node = new Node<T>(element);
 
         if (isEmpty()) {
             head = node;
@@ -167,14 +167,10 @@ public class LinkedList<T> {
         private Node<E> next;
         private E data;
 
-        public Node(E d, Node<E> n) {
+        public Node(E d) {
             data = d;
-            next = n;
-        }
-
-        public boolean hasNext() {
-            return next != null;
         }
 
     }
+
 }
