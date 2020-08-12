@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import dst.arraylist.ArrayList;
+
 public class MapTest {
 
     private Map<Object, Object> map;
@@ -106,7 +108,7 @@ public class MapTest {
 
     @Test
     public void keys_onEmptyMap() {
-        assertEquals(0, map.keys().length);
+        assertEquals(0, map.keys().size());
     }
 
     @Test
@@ -117,14 +119,14 @@ public class MapTest {
         map.put(new Object(), new Object());
         map.put(new Object(), new Object());
 
-        Object[] keys = map.keys();
-        assertEquals(3, keys.length);
-        assertTrue(contains(key, keys));
+        ArrayList<Object> keys = map.keys();
+        assertEquals(3, keys.size());
+        assertTrue(keys.contains(key));
     }
 
     @Test
     public void values_onEmptyMap() {
-        assertEquals(0, map.values().length);
+        assertEquals(0, map.values().size());
     }
 
     @Test
@@ -135,9 +137,9 @@ public class MapTest {
         map.put(new Object(), new Object());
         map.put(new Object(), new Object());
 
-        Object[] values = map.values();
-        assertEquals(3, values.length);
-        assertTrue(contains(value, values));
+        ArrayList<Object> values = map.values();
+        assertEquals(3, values.size());
+        assertTrue(values.contains(value));
     }
 
     @Test
@@ -148,16 +150,6 @@ public class MapTest {
 
         map.clear();
         assertTrue(map.isEmpty());
-    }
-
-    private boolean contains(Object element, Object[] elements) {
-        for (Object o : elements) {
-            if (element.equals(o)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
 }

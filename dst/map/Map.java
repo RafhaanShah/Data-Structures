@@ -1,5 +1,7 @@
 package dst.map;
 
+import dst.arraylist.ArrayList;
+
 public class Map<K, V> {
 
     private int size = 0;
@@ -45,12 +47,11 @@ public class Map<K, V> {
         return size == 0;
     }
 
-    @SuppressWarnings("unchecked")
-    public K[] keys() {
-        K[] keys = (K[]) new Object[size];
+    public ArrayList<K> keys() {
+        ArrayList<K> keys = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            keys[i] = data[i].key;
+            keys.add(data[i].key);
         }
 
         return keys;
@@ -82,12 +83,11 @@ public class Map<K, V> {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
-    public V[] values() {
-        V[] values = (V[]) new Object[size];
+    public ArrayList<V> values() {
+        ArrayList<V> values = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            values[i] = data[i].value;
+            values.add(data[i].value);
         }
 
         return values;
